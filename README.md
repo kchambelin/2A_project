@@ -1,7 +1,7 @@
 # 2A_project
 # Git repository
 
-Create an account on github, using your sigma address.
+Create an account on github, using your sigma address. (and token !)
 
 Be added to the project.
 
