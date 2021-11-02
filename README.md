@@ -6,6 +6,8 @@ Create an account on github, using your sigma address.
 Be added to the project.
 
 To edit your code, install Visual Studio Code
+install git extension to vscode
+install git graph extension to vscode
 
 sudo apt-get install git
 
