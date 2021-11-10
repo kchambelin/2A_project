@@ -41,7 +41,7 @@ mmm
 j'espère que ça merge pas ppp
 jjj
 
-
+Test changement
 
 sakdaksda
 
@@ -51,7 +51,7 @@ soy un cabron
 =======
 soy un cabron
 <<<<<<< HEAD
-eres un hijo de 
+eres un hijo de puta
 =======
 >>>>>>> 40d5d6335871def4c4a75541ed00d68b81ca94c7
 >>>>>>> a9513feec876aebcb0270f40b768d7e23c4a8d62
