@@ -26,6 +26,7 @@ cd ~/2A_project/{Package_name}
 catkin_make
 source devel/setup.bash
 
+oiii
 
 Test
 
@@ -35,4 +36,4 @@ Test
 Adrian was here
 sajdjasjda
 
-blablablas
+Bla
