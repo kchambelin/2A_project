@@ -25,3 +25,5 @@ mkdir -p ~/2A_project/{Package_name}/src
 cd ~/2A_project/{Package_name}
 catkin_make
 source devel/setup.bash
+
+MATHIEU IL EST BEAU
