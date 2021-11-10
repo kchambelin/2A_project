@@ -17,7 +17,7 @@ git clone https://github.com/kchambelin/2A_project.git
 Configure your id for commits :
 git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
-
+git remote set-url --push origin https://github.com/kchambelin/2A_project.git
 
 
 Create packages :
@@ -26,4 +26,13 @@ cd ~/2A_project/{Package_name}
 catkin_make
 source devel/setup.bash
 
-Hello
+
+Test
+
+:) sheeeesh
+
+
+Adrian was here
+sajdjasjda
+
+blablablas
