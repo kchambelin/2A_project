@@ -25,4 +25,22 @@ Adrian was here sajdjasjda
 
 chrystyan was here
 
+<<<<<<< HEAD
 j'ai réglé le pb de mathieu
+=======
+:) sheeeesh
+
+
+Adrian was here
+sajdjasjda
+
+j'espère que ça merge pas ppp
+
+
+
+
+sakdaksda
+
+
+soy un cabron
+>>>>>>> 40d5d6335871def4c4a75541ed00d68b81ca94c7
