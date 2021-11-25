@@ -46,7 +46,7 @@ while True:
     cv2.imshow("Grey", frameCanny)
     cv2.imshow("Image",frame)
 
-    key = cv2.waitKey(1)
+    key = cv2.waitKey(100)
     if key == 27:
         break
 

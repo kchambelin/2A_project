@@ -26,6 +26,12 @@ while (1):
     red_upper = np.array([180, 255, 255], np.uint8)
     red_mask = cv2.inRange(hsvFrame, red_lower, red_upper)
 
+    # Set range for white color and
+    # define mask
+    white_lower = np.array([0, 0, 200], np.uint8)
+    white_upper = np.array([0, 0, 255], np.uint8)
+    white_mask = cv2.inRange(hsvFrame, white_lower, white_upper)
+
     # Set range for green color and
     # define mask
     green_lower = np.array([25, 52, 72], np.uint8)
@@ -48,6 +54,11 @@ while (1):
     red_mask = cv2.dilate(red_mask, kernal)
     res_red = cv2.bitwise_and(imageFrame, imageFrame,
                               mask=red_mask)
+
+    # For white color
+    white_mask = cv2.dilate(white_mask, kernal)
+    res_white = cv2.bitwise_and(imageFrame, imageFrame,
+                              mask=white_mask)
 
     # For green color
     green_mask = cv2.dilate(green_mask, kernal)
@@ -72,9 +83,26 @@ while (1):
                                        (x + w, y + h),
                                        (0, 0, 255), 2)
 
-            cv2.putText(imageFrame, "Red Colour", (x, y),
+            cv2.putText(imageFrame, "Red", (x, y),
                         cv2.FONT_HERSHEY_SIMPLEX, 1.0,
                         (0, 0, 255))
+
+    # Creating contour to track white color
+    contours, hierarchy = cv2.findContours(white_mask,
+                                           cv2.RETR_TREE,
+                                           cv2.CHAIN_APPROX_SIMPLE)
+
+    for pic, contour in enumerate(contours):
+        area = cv2.contourArea(contour)
+        if (area > 300):
+            x, y, w, h = cv2.boundingRect(contour)
+            imageFrame = cv2.rectangle(imageFrame, (x, y),
+                                       (x + w, y + h),
+                                       (255, 255, 255), 2)
+
+            cv2.putText(imageFrame, "White", (x, y),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1.0,
+                        (255, 255, 255))
 
     # Creating contour to track green color
     contours, hierarchy = cv2.findContours(green_mask,
@@ -89,7 +117,7 @@ while (1):
                                        (x + w, y + h),
                                        (0, 255, 0), 2)
 
-            cv2.putText(imageFrame, "Green Colour", (x, y),
+            cv2.putText(imageFrame, "Green", (x, y),
                         cv2.FONT_HERSHEY_SIMPLEX,
                         1.0, (0, 255, 0))
 
@@ -105,7 +133,7 @@ while (1):
                                        (x + w, y + h),
                                        (255, 0, 0), 2)
 
-            cv2.putText(imageFrame, "Blue Colour", (x, y),
+            cv2.putText(imageFrame, "Blue", (x, y),
                         cv2.FONT_HERSHEY_SIMPLEX,
                         1.0, (255, 0, 0))
 
