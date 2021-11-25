@@ -1,0 +1,91 @@
+BRAIN                               VOC-RECO                                    MOV                                     CAM
+
+Initialize
+
+Wait for voc-reco
+to begin
+                    ---------->
+                                wait for the user to
+                                say "begin"
+                    <----------
+"BEGIN"
+Declare secure pos
+                    --------------------------------------------------------->
+                                                                            Move the robot in
+                                                                            secure pos
+                    <--------------------------------------------------------
+"Pos OK"
+
+Initiliaze data set {
+
+    wait for the cam
+    all coordinates
+                    -------------------------------------------------------------------------------------------------->
+                                                                                                                        all coordinates
+                    <--------------------------------------------------------------------------------------------------
+    all co received
+    Compute the real
+    coordinates using
+    cam coordinates and 
+    pieces coordinates
+
+    save in a list all
+    the data to redo
+    the pattern
+}
+
+
+LOOP {
+
+
+    Wait for voc-reco
+    to have an order
+                        ----------->
+                                    data-set received
+                                    takes the order
+                                    compares to dataset
+                        <-----------
+    Id of piece
+
+    Wait for the CAM
+    to verify coordinates
+                        ----------------------------------------------------------------------------------------------> 
+                                                                                                                        shape and color received
+                                                                                                                        finds the piece
+                        <----------------------------------------------------------------------------------------------
+    coordinates received
+
+    Compute the real
+    coordinates using
+    cam coordinates and 
+    piece coordinates
+
+    Orders the robot to
+    pick up the piece 
+                        ----------------------------------------------------------->
+                                                                                    coordinates received
+                                                                                    go to the piece, grab it
+                                                                                    go back to secure pos 
+                        <-----------------------------------------------------------
+    2 CASES :
+    CAS 1 {
+        "OK" then next
+    }
+    CAS 2 {
+        "not ok" then go back to the cam to verify the coordinates....
+    }
+
+    WHEN OK :
+
+    orders the robot
+    to deliver the piece 
+                        ---------------------------------------------------------->
+                                                                                    coordinates of delivery received
+                                                                                    go put the piece 
+                                                                                    go back to secure pos
+                        <----------------------------------------------------------
+    "OK"
+}
+
+do the loop again
+until order is "shut-down"
