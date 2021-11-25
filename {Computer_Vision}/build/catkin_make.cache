@@ -1,0 +1,2 @@
+
+-DCATKIN_DEVEL_PREFIX=/home/amine/2A_project/{Computer_Vision}/devel -DCMAKE_INSTALL_PREFIX=/home/amine/2A_project/{Computer_Vision}/install -G Unix Makefiles
