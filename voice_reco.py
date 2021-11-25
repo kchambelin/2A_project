@@ -14,7 +14,7 @@ while True:
             text=recognizer.recognize_google(audio)
             text=text.lower()
 
-            print(f"Recognize {text}")
+            print(text)
     
     except speech_recognition.UnknownValueError():
 
