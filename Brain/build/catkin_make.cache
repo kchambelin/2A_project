@@ -1,0 +1,2 @@
+
+-DCATKIN_DEVEL_PREFIX=/home/kevin/2A_project/Brain/devel -DCMAKE_INSTALL_PREFIX=/home/kevin/2A_project/Brain/install -G Unix Makefiles
