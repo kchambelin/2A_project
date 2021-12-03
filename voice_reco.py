@@ -31,4 +31,4 @@ while True:
     elif voice_reco()=="stop":
         break  
     else :
-        print("anything")  
+        print("anything")
