@@ -124,11 +124,11 @@ for pic, contour in enumerate(contours):
         x, y, w, h = cv2.boundingRect(contour)
         cap = cv2.rectangle(cap, (x, y),
                                     (x + w, y + h),
-                                    (255, 255, 255), 2)
+                                    (0, 0, 0), 2)
 
         cv2.putText(cap, "White", (x, y),
                     cv2.FONT_HERSHEY_SIMPLEX, 1.0,
-                    (255, 255, 255))
+                    (0, 0, 0))
 
 # Creating contour to track green color
 contours, hierarchy = cv2.findContours(green_mask,
@@ -170,6 +170,6 @@ cv2.imshow("Multiple Color Detection in Real-TIme", cap)
 cv2.imshow("Grey", frameCanny)
 cv2.imshow("Image",cap)
 
-key = cv2.waitKey(100)
+key = cv2.waitKey(1)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
