@@ -40,7 +40,9 @@ while True:
                 cv2.putText(frame, "Triangle", (x, y), font, 1, (0, 0, 0))
             elif len(approx) == 4:
                 cv2.putText(frame, "Rectangle", (x, y), font, 1, (0, 0, 0))
-            elif 10 < len(approx) < 20:
+            elif len(approx) == 10:
+                cv2.putText(frame,"Star",(x,y),font, 1, (0,0,0))
+            elif len(approx)>10:
                 cv2.putText(frame, "Circle", (x, y), font, 1, (0, 0, 0))
 
     cv2.imshow("Grey", frameCanny)
