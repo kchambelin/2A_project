@@ -1,28 +1,58 @@
-PKG = 'brain_package'
+def initialize() :
+    Orders = [
+        [0, "stop"],
+        [1, "start"],
+        [2, "test"],
+        [3, "check"],
+        [4, "pick"]
+    ]
 
-import roslib; roslib.load_manifest(PKG)
-import rospy
-from std_msgs.msg import String
+def ask_voc_reco_for_order() :
 
-def callback(data) :
-    rospy.loginfo(data.data)
-    if data.data == 0 :
-        Initialize()
+
+    response = 0
+
+    return response
+
+def get_all_pieces_from_cam():
+    response = [
+        ['shape', 'color', 'x_cam', 'y_cam', 'z_cam', 'id']
+    ]
+    return response
+
+def verify_pos_cam(piece) :
+
+    response = 0
+    if type(response) == list : # response = [x_cam, y_cam, z_cam]
+        piece[2] = response[0]
+        piece[3] = response[1]
+        piece[4] = response[2]
+    elif response == 0 :
+        piece = 0
+    return piece
+    
+def compute_real_coordinates
+
+def start() :
+    pieces = get_all_pieces_from_cam()
+    for piece in pieces :
+        piece = verify_pos_cam(piece)
+        if piece == 0 :
+            continue
+        piece_coordinates = compute_real_coordinates(piece[2], piece[3], piece[4])
+
+initialize()
+while True :
+    order = ask_voc_reco_for_order()
+    if order == 0 :
+        break
+    elif order == 1 :
+        start()
+    elif order == 2 :
+        test()
+    elif order == 3 :
+        check()
+    elif order == 4 :
+        pick()
     else :
-        Get_initialize_from_voc_reco()
-
-def Get_initialize_from_voc_reco() :
-    rospy.init_node('Ask_init', anonymous=True)
-    pub = rospy.Publisher("Ask_for_init", String)
-    rospy.loginfo("Ask_for_initialization")
-    pub.publish("Ask_for_initialization")
-
-    rospy.init_node('Answer_init', anonymous=True)
-    rospy.Subscriber("Ask_for_init", String, callback)
-
-def Initialize() :
-    return
-
-
-if __name__ == '__main__' :
-    Get_initialize_from_voc_reco()
+        break
