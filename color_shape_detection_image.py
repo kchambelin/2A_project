@@ -20,7 +20,7 @@ def duplicates_remove(list):
 frame = cv2.imread(cv2.samples.findFile("figures.png"))
 
 # ============================================================
-# Entry : Image of the objects to detect
+# Input : Image of the objects to detect
 # Output : [ shape , color , x_center , y_center , ID]
 def findInfo(image):
 
@@ -88,28 +88,37 @@ def findInfo(image):
 
 
 # ============================================================
-# Entry : Image, 2x2 list - Coordinates of the end effector (x,y)
+# Input : 2x2 list - Coordinates of the end effector (x,y)
 # Output : Info [ shape , color , x_center , y_center , ID] of the closest element
-def findClosestPiece(image, coordinates):
-    objectInfo = findInfo(image)
-    dist = []
-    for object in objectInfo:
-        dist.append(sqrt((object[2]-coordinates[0])**2+(object[3]-coordinates[1])**2))
+def findClosestPiece(coordinates,shape,color):
     
-    return objectInfo[dist.index(min(dist))]
+    objectInfo = findInfo(frame)    
+
+    candidate = []
+    for object in objectInfo :
+        if object[1]==color and object[0]==shape :
+            candidate.append(object)
+
+    dist = []
+    for object in candidate:
+        dist.append(sqrt((object[2]-coordinates[0])**2+(object[3]-coordinates[1])**2))
+
+    return candidate[dist.index(min(dist))]
 
 # ============================================================
 
-#print(findClosestPiece(frame,[0,0]))
+print(findClosestPiece([0,0],2,'Red'))
 
 # ============================================================
-# Entry : Info [x,y]
+# Input : Info [num, color, x,y]
 # Output : [ shape , color , x_center , y_center , ID] if the piece is here, 0 otherwise
 
-def isThePiecePresent(image, Info):
+def isThePiecePresent(Info):
+
+    
     epsilon = 100 # Parameter to change
     near_object = []
-    objectInfo = findInfo(image)
+    objectInfo = findInfo(frame)
     for object in objectInfo:
         # We check around the coordinates, in a frame, if there's other objects
         if object[2]<Info[2]+epsilon and object[2]>Info[2]-epsilon:
@@ -122,7 +131,6 @@ def isThePiecePresent(image, Info):
     return 0
 
 
-print(isThePiecePresent(frame,[3, 'Blue', 858, 763, 0]))
-
+#print(isThePiecePresent(frame,[3, 'Blue', 858, 763, 0]))
 
 # ============================================================
