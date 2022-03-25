@@ -34,7 +34,7 @@ while True:
         text_token_lower = text_token.split()
         print(text_token_lower)
         filtered_list = []
-        spe_words = ["begin", "stop", "blue", "red", "green", "square", "triangle", "cylinder", "star"]
+        spe_words = ["begin", "stop","reproduce", "blue", "red", "green", "square", "triangle", "cylinder", "star"]
         for word in text_token_lower:
             if word.casefold() in spe_words:
                 filtered_list.append(word)
