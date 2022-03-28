@@ -17,7 +17,7 @@ def duplicates_remove(list):
             list.remove(i)
     return list
 
-frame = cv2.imread(cv2.samples.findFile("figures.png"))
+frame = cv2.imread(cv2.samples.findFile("figures_2.png"))
 
 # ============================================================
 # Input : Image of the objects to detect
@@ -99,15 +99,17 @@ def findClosestPiece(coordinates,shape,color):
         if object[1]==color and object[0]==shape :
             candidate.append(object)
 
+    print(candidate)
+
     dist = []
     for object in candidate:
         dist.append(sqrt((object[2]-coordinates[0])**2+(object[3]-coordinates[1])**2))
 
-    return candidate[dist.index(min(dist))]
+    return candidate[dist.index(min(dist))][2:4]
 
 # ============================================================
 
-print(findClosestPiece([0,0],2,'Red'))
+print(findClosestPiece([0,0],1,'Red'))
 
 # ============================================================
 # Input : Info [num, color, x,y]
