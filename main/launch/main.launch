@@ -1,0 +1,11 @@
+<launch>
+
+    <node name='vr_init' pkg='voice_reco' type='init.py'/>
+    <node name='vr_picking_order' pkg='voice_reco' type='picking_order.py'/>
+    <node name='vr_voice_listener' pkg='voice_reco' type='voice_listener.py'  output='screen' launch-prefix='gnome-terminal --command'/>
+    
+    <node name='main_main' pkg='main' type='main.py'  output='screen' launch-prefix='gnome-terminal --command'/>
+    
+    <node name='move_robot' pkg='moveit_tutorials' type='move_group_python_interface_tutorial.py' output='screen' launch-prefix='gnome-terminal --command'/>
+
+</launch>
